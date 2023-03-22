@@ -138,7 +138,8 @@
               },
               "additionalProperties": false
             },
-            "maxItems": 100
+            "maxItems": 200,
+            "uniqueItems": true
           },
           "price": {
             "type": "object",
