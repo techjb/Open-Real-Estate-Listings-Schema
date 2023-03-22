@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$id": "https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listings-Schema/master/ES/1.0.json",
-  "title": "Open Real Estate Listing Schema",
+  "title": "Open Real Estate Listings Schema",
   "description": "Open schema for publishing real estate listings",
   "type": "object",
   "properties": {
