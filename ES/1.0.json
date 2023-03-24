@@ -52,13 +52,8 @@
             "description": "Type of bussiness operation",
             "type": "string",
             "enum": [
-              "buy",
               "sell",
-              "rent",
-              "holiday_rent",
-              "share",
-              "auction",
-              "transfer"
+              "rent"
             ]
           },
           "propertyType": {
