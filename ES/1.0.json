@@ -4,18 +4,14 @@
   "title": "Open Real Estate Listings Schema",
   "description": "Open schema for publishing real estate listings",
   "type": "object",
-  "properties": {
-    "schemaVersion": {
-      "description": "Schema version number",
-      "type": "number"
-    },
+  "properties": {   
     "schemaUrl": {
       "description": "Url of the schema",
       "type": "string",
       "format": "uri"
     },
-    "updated": {
-      "description": "Date of list update",
+    "created": {
+      "description": "Date of list creation",
       "type": "string",
       "format": "date-time"
     },
@@ -116,10 +112,10 @@
             "items": {
               "type": "object",
               "properties": {
-                "type": {
+                "mediaType": {
                   "description": "Type of media",
                   "type": "string",
-                  "enum": [ "image", "video", "floorplan", "text", "other" ]
+                  "enum": [ "image", "video", "floor_plan", "text", "other" ]
                 },
                 "title": {
                   "description": "Title of the media",
@@ -131,10 +127,11 @@
                   "format": "uri"
                 }
               },
+              "required": [ "url" ],              
               "additionalProperties": false
             },
             "maxItems": 200,
-            "uniqueItems": true
+            "uniqueItems": true            
           },
           "price": {
             "type": "object",
@@ -304,5 +301,5 @@
       "uniqueItems": true
     }
   },
-  "required": [ "schemaVersion", "updated", "listings" ]
+  "required": [ "schemaUrl", "created", "listings" ]
 }
