@@ -4,9 +4,9 @@
   "title": "Open Real Estate Listings Schema",
   "description": "Open schema for publishing real estate listings",
   "type": "object",
-  "properties": {   
+  "properties": {
     "schemaUrl": {
-      "description": "Url of the schema",
+      "description": "URL of the schema containing country and version",
       "type": "string",
       "format": "uri"
     },
