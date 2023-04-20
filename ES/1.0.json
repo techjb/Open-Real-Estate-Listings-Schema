@@ -67,7 +67,7 @@
               "building"
             ]
           },
-          "propertySubType": {
+          "propertySubtype": {
             "description": "Subtype of property",
             "type": "string",
             "if": {
@@ -127,11 +127,11 @@
                   "format": "uri"
                 }
               },
-              "required": [ "url" ],              
+              "required": [ "url" ],
               "additionalProperties": false
             },
             "maxItems": 200,
-            "uniqueItems": true            
+            "uniqueItems": true
           },
           "price": {
             "type": "object",
@@ -294,7 +294,8 @@
             }
           }
         },
-        "required": [ "guid", "listingStatus", "operation", "propertyType" ]        
+        "required": [ "guid", "listingStatus", "operation", "propertyType" ],
+        "additionalProperties": false
       },
       "minItems": 1,
       "uniqueItems": true
