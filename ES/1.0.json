@@ -294,8 +294,7 @@
             }
           }
         },
-        "required": [ "guid", "listingStatus", "operation", "propertyType" ],
-        "additionalProperties": false
+        "required": [ "guid", "listingStatus", "operation", "propertyType" ]        
       },
       "minItems": 1,
       "uniqueItems": true
