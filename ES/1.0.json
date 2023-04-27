@@ -270,29 +270,63 @@
             "type": "integer",
             "minimum": 0
           },
-          "features": {
-            "description": "Property features",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "terrace",
-                "garden",
-                "garage",
-                "motorbike_garage",
-                "pool",
-                "lift",
-                "disabled_access",
-                "storage_room",
-                "furnished",
-                "non_furnished",
-                "heating",
-                "air_conditioning",
-                "pets_allowed",
-                "security_systems"
-              ]
-            }
-          }
+
+          "terrace": {
+            "description": "The property has a terrace",
+            "type": "boolean"
+          },
+          "garden": {
+            "description": "The property has a garden",
+            "type": "boolean"
+          },
+          "garage": {
+            "description": "The property has a garage",
+            "type": "boolean"
+          },
+          "motorbikeGarage": {
+            "description": "The property has a garage for a motorcycle",
+            "type": "boolean"
+          },
+          "pool": {
+            "description": "The property has a pool",
+            "type": "boolean"
+          },
+          "lift": {
+            "description": "The property has a lift",
+            "type": "boolean"
+          },
+          "disabledAccess": {
+            "description": "The property has disabled access",
+            "type": "boolean"
+          },
+          "storageRoom": {
+            "description": "The property has a storage room",
+            "type": "boolean"
+          },
+          "furnished": {
+            "description": "The property is furnished",
+            "type": "boolean"
+          },
+          "nonFurnished": {
+            "description": "The property is not furnished",
+            "type": "boolean"
+          },
+          "heating": {
+            "description": "The property has heating",
+            "type": "boolean"
+          },
+          "airConditioning": {
+            "description": "The property has air conditioning",
+            "type": "boolean"
+          },
+          "petsAllowed": {
+            "description": "The property allows pets",
+            "type": "boolean"
+          },
+          "securitySystems": {
+            "description": "The property has security systems",
+            "type": "boolean"
+          }          
         },
         "required": [ "guid", "listingStatus", "operation", "propertyType" ],
         "additionalProperties": false
