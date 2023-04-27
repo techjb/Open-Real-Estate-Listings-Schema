@@ -326,7 +326,7 @@
           "securitySystems": {
             "description": "The property has security systems",
             "type": "boolean"
-          }          
+          }
         },
         "required": [ "guid", "listingStatus", "operation", "propertyType" ],
         "additionalProperties": false
