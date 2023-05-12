@@ -27,7 +27,7 @@ To keep contact information hidden, only fill in the `contactUrl` property.
 - [Spain (ES)](/ES)
 
 ## Viewer
-Try this [ORELS Viewer](https://techjb.github.io/Landerist/landerist_viewer/wwwroot/index.html) 
+Try this [ORELS Viewer](https://techjb.github.io/Landerist/landerist_orels_viewer/wwwroot/index.html) 
 to validate and visualize real estate listings.
 
 ## License
