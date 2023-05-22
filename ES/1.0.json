@@ -201,6 +201,12 @@
             "type": "string",
             "minLength": 1
           },
+          "lauId": {
+            "description": "Eurostat Local Administrative Unit Id corresponding with Spanish INE code",
+            "type": "number",
+            "minimum": 1000,
+            "maximum": 52999
+          },
           "latitude": {
             "description": "Property location latitude in decimal degrees",
             "type": "number",
