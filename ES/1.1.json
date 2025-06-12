@@ -1,0 +1,352 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listings-Schema/master/ES/1.1.json",
+  "title": "Open Real Estate Listings Schema",
+  "description": "Open schema for publishing real estate listings",
+  "type": "object",
+  "properties": {
+    "schemaUrl": {
+      "description": "URL of the schema containing country and version",
+      "type": "string",
+      "format": "uri"
+    },
+    "created": {
+      "description": "Date of list creation",
+      "type": "string",
+      "format": "date-time"
+    },
+    "listings": {
+      "description": "Property listings",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guid": {
+            "description": "Globally Unique Identifier",
+            "type": "string",
+            "minLength": 1
+          },
+          "listingStatus": {
+            "description": "Listing status",
+            "type": "string",
+            "enum": [
+              "published",
+              "unpublished"
+            ]
+          },
+          "listingDate": {
+            "description": "Date on which the listing was published",
+            "type": "string",
+            "format": "date-time"
+          },
+          "unlistingDate": {
+            "description": "Date on which the listing has been unpublished",
+            "type": "string",
+            "format": "date-time"
+          },
+          "operation": {
+            "description": "Type of bussiness operation",
+            "type": "string",
+            "enum": [
+              "sell",
+              "rent"
+            ]
+          },
+          "propertyType": {
+            "description": "Type of property",
+            "type": "string",
+            "enum": [
+              "home",
+              "room",
+              "premise",
+              "industrial",
+              "garage",
+              "storage",
+              "office",
+              "land",
+              "building"
+            ]
+          },
+          "propertySubtype": {
+            "description": "Subtype of property",
+            "type": "string",
+            "if": {
+              "properties": {
+                "propertyType": {
+                  "const": "home"
+                }
+              }
+            },
+            "then": {
+              "enum": [
+                "flat",
+                "appartment",
+                "penthouse",
+                "bungalow",
+                "duplex",
+                "detached",
+                "semi_detached",
+                "terraced"
+              ]
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "propertyType": {
+                    "const": "land"
+                  }
+                }
+              },
+              "then": {
+                "enum": [
+                  "developed",
+                  "buildable",
+                  "non_building"
+                ]
+              }
+            }
+          },
+          "media": {
+            "description": "Media resources urls",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "mediaType": {
+                  "description": "Type of media",
+                  "type": "string",
+                  "enum": [ "image", "video", "floor_plan", "text", "other" ]
+                },
+                "title": {
+                  "description": "Title of the media",
+                  "type": "string"
+                },
+                "url": {
+                  "description": "Url of media",
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [ "url" ],
+              "additionalProperties": false
+            },
+            "maxItems": 200,
+            "uniqueItems": true
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "description": "Property price",
+                "type": "number"
+              },
+              "currency": {
+                "description": "Currency in which the price is expressed",
+                "type": "string",
+                "enum": [ "EUR" ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": {
+            "description": "Description of the property",
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "description": "List of data sources",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceName": {
+                  "description": "Name of the source",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceUrl": {
+                  "description": "Url of the source",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sourceGuid": {
+                  "description": "Globally Unique Identifier of the source",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "contactName": {
+            "description": "Contact name",
+            "type": "string",
+            "minLength": 1
+          },
+          "contactPhone": {
+            "description": "Contact phone number",
+            "type": "string"
+          },
+          "contactEmail": {
+            "description": "Contact email address",
+            "type": "string",
+            "format": "email"
+          },
+          "contactUrl": {
+            "description": "Contact url",
+            "type": "string",
+            "format": "uri"
+          },
+          "contactOther": {
+            "description": "Contact other (Skype, Twitter, Facebook, etc.)",
+            "type": "string",
+            "minLength": 1
+          },
+          "address": {
+            "description": "Formated address of the property",
+            "type": "string",
+            "minLength": 1
+          },
+          "lauId": {
+            "description": "Eurostat Local Administrative Unit Id corresponding with Spanish INE code",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 13
+          },
+          "latitude": {
+            "description": "Property location latitude in decimal degrees",
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "description": "Property location longitude in decimal degrees",
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "locationIsAccurate": {
+            "description": "true if the latitude and longitude corresponds to the exact location of the property",
+            "type": "boolean"
+          },
+          "cadastralReference": {
+            "description": "Cadastral reference",
+            "type": "string",
+            "minLength": 1
+          },
+          "propertySize": {
+            "description": "Built-up area of the property in square metres",
+            "type": "number",
+            "minimum": 0
+          },
+          "landSize": {
+            "description": "Size of land in square meters",
+            "type": "number",
+            "minimum": 0
+          },
+          "constructionYear": {
+            "description": "Year of construction",
+            "type": "integer"
+          },
+          "constructionStatus": {
+            "description": "Status of construction",
+            "type": "string",
+            "enum": [
+              "new",
+              "good",
+              "for_renovation",
+              "refurbished"
+            ]
+          },
+          "floors": {
+            "description": "Number of building floors",
+            "type": "integer",
+            "minimum": 0
+          },
+          "floor": {
+            "description": "Property floor number",
+            "type": "string"
+          },
+          "bedrooms": {
+            "description": "Number of bedrooms",
+            "type": "integer",
+            "minimum": 0
+          },
+          "bathrooms": {
+            "description": "Number of bathrooms",
+            "type": "integer",
+            "minimum": 0
+          },
+          "parkings": {
+            "description": "Number of garaje parkings",
+            "type": "integer",
+            "minimum": 0
+          },
+
+          "terrace": {
+            "description": "The property has a terrace",
+            "type": "boolean"
+          },
+          "garden": {
+            "description": "The property has a garden",
+            "type": "boolean"
+          },
+          "garage": {
+            "description": "The property has a garage",
+            "type": "boolean"
+          },
+          "motorbikeGarage": {
+            "description": "The property has a garage for a motorcycle",
+            "type": "boolean"
+          },
+          "pool": {
+            "description": "The property has a pool",
+            "type": "boolean"
+          },
+          "lift": {
+            "description": "The property has a lift",
+            "type": "boolean"
+          },
+          "disabledAccess": {
+            "description": "The property has disabled access",
+            "type": "boolean"
+          },
+          "storageRoom": {
+            "description": "The property has a storage room",
+            "type": "boolean"
+          },
+          "furnished": {
+            "description": "The property is furnished",
+            "type": "boolean"
+          },
+          "nonFurnished": {
+            "description": "The property is not furnished",
+            "type": "boolean"
+          },
+          "heating": {
+            "description": "The property has heating",
+            "type": "boolean"
+          },
+          "airConditioning": {
+            "description": "The property has air conditioning",
+            "type": "boolean"
+          },
+          "petsAllowed": {
+            "description": "The property allows pets",
+            "type": "boolean"
+          },
+          "securitySystems": {
+            "description": "The property has security systems",
+            "type": "boolean"
+          }
+        },
+        "required": [ "guid", "listingStatus", "operation", "propertyType" ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [ "schemaUrl", "created", "listings" ]
+}
