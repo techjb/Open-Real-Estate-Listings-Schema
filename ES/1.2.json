@@ -239,7 +239,7 @@
           "cadastralReference": {
             "description": "Cadastral reference",
             "type": "string",
-            "pattern": "^[0-9A-Z]{20}$"
+            "pattern": "^[0-9A-Z]{14}([0-9A-Z]{6})?$"
           },
           "propertySize": {
             "description": "Built-up area of the property in square metres",
