@@ -19,6 +19,7 @@ This document outlines a data structure for the publication of real estate listi
 - 1.1
 - 1.2
 - 1.3
+- 1.4
 
 ## Format
 The schema is defined using the [JSON](https://en.wikipedia.org/wiki/JSON) interchange format and follows the `camelCase` convention.
